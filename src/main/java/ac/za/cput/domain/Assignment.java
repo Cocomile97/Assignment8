@@ -35,6 +35,12 @@ public class Assignment {
             this.assignmentName = assignmentName;
             return this;
         }
+        public Assignment.Builder copy (Assignment assignment){
+            this.assignmentId = assignment.assignmentId;
+            this.assignmentName = assignment.assignmentName;
+
+            return this;
+        }
 
         public Assignment build() {
             return new Assignment(this);

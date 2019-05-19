@@ -31,6 +31,12 @@ public class Dept {
             this.deptName = deptName;
             return this;
         }
+        public Builder copy (Dept dept){
+            this.deptId = dept.deptId;
+            this.deptName = dept.deptName;
+
+            return this;
+        }
 
         public Dept build() {
             return new Dept(this);

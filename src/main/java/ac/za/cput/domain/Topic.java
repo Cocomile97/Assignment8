@@ -22,6 +22,10 @@ public class Topic {
             this.topicName = topicName;
             return this;
         }
+        public Topic.Builder copy (Topic topic){
+            this.topicName = topic.topicName;
+            return this;
+        }
 
         public Topic build() {
             return new Topic(this);

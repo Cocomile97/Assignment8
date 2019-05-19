@@ -36,6 +36,12 @@ public class Degree {
             return this;
         }
 
+        public Degree.Builder copy (Degree degree){
+            this.degreeLevel = degree.degreeLevel;
+            this.degreeName = degree.degreeName;
+
+            return this;
+        }
         public Degree build() {
             return new Degree(this);
         }

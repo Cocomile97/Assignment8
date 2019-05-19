@@ -1,6 +1,7 @@
 package ac.za.cput.domain;
 
 
+import org.apache.wicket.util.resource.StringBufferResourceStream;
 
 public class Course {
 
@@ -32,6 +33,13 @@ public class Course {
 
         public Builder courseName(String courseName) {
             this.courseName = courseName;
+            return this;
+        }
+
+        public Builder copy (Course course){
+            this.courseId = course.courseId;
+            this.courseName = course.courseName;
+
             return this;
         }
 

@@ -35,7 +35,12 @@ public class Account {
             this.accountName = accountName;
             return this;
         }
+        public Account.Builder copy (Account account){
+            this.accountName = account.accountName;
+            this.accountType = account.accountType;
 
+            return this;
+        }
         public Account build() {
             return new Account(this);
         }

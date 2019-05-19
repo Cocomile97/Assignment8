@@ -36,6 +36,12 @@ public class Supervisor {
             return this;
         }
 
+        public Supervisor.Builder copy (Supervisor supervisor){
+            this.supervisorLevel = supervisor.supervisorLevel;
+            this.supervisorName = supervisor.supervisorName;
+
+            return this;
+        }
         public Supervisor build() {
             return new Supervisor(this);
         }

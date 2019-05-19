@@ -36,6 +36,12 @@ public class Stream {
             return this;
         }
 
+        public Stream.Builder copy (Stream stream){
+            this.streamId= stream.streamId;
+            this.streamName = stream.streamName;
+
+            return this;
+        }
         public Stream build() {
             return new Stream(this);
         }

@@ -59,6 +59,12 @@ public class Student {
             this.age = age;
             return this;
         }
+        public Builder copy (Student student){
+            this.studentId = student.studentId;
+            this.studentFirstName = student.studentFirstName;
+
+            return this;
+        }
 
         public Student build() {
             return new Student(this);

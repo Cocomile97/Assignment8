@@ -36,6 +36,13 @@ public class Location {
             return this;
         }
 
+        public Location.Builder copy (Location location){
+            this.locationId = location.locationId;
+            this.locationName = location.locationName;
+
+            return this;
+        }
+
         public Location build() {
             return new Location(this);
         }

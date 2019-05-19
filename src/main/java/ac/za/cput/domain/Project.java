@@ -45,6 +45,13 @@ public class Project {
             this.projectType = projectType;
             return this;
         }
+        public Project.Builder copy (Project project){
+            this.projectName = project.projectName;
+            this.projectNum = project.projectNum;
+            this.projectType = project. projectType;
+
+            return this;
+        }
         public Project build() {
             return new Project(this);
         }

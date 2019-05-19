@@ -35,6 +35,12 @@ public class Review {
             this.reviewName = reviewName;
             return this;
         }
+        public Review.Builder copy (Review review){
+            this.reviewId = review.reviewId;
+            this.reviewName = review.reviewName;
+
+            return this;
+        }
 
         public Review build() {
             return new Review(this);

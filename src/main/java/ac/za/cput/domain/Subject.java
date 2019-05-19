@@ -30,6 +30,11 @@ public class Subject {
             this.subjectName = subjectName;
             return this;
         }
+        public Subject.Builder copy (Subject subject){
+            this.subjectId = subject.subjectId;
+            this.subjectName = subject.subjectName;
+            return this;
+        }
 
         public Subject build() {
             return new Subject(this);

@@ -26,7 +26,11 @@ public class Year {
             this.yearNum = yearNum;
             return this;
         }
+        public Year.Builder copy (Year year){
+            this.yearNum = year.yearNum;
 
+            return this;
+        }
         public Year build() {
             return new Year(this);
         }

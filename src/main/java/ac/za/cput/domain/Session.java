@@ -35,6 +35,12 @@ public class Session {
             this.sessionType = sessionType;
             return this;
         }
+        public Session.Builder copy (Session session){
+            this.sessionDuration = session.sessionDuration;
+            this.sessionType = session.sessionType;
+
+            return this;
+        }
 
         public Session build() {
             return new Session(this);

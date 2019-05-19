@@ -35,6 +35,12 @@ public class Calendar {
             this.calendarName = calendarName;
             return this;
         }
+        public Calendar.Builder copy (Calendar calendar){
+            this.calendarName = calendar.calendarName;
+            this.calendarType = calendar.calendarType;
+
+            return this;
+        }
 
         public Calendar build() {
             return new Calendar(this);
