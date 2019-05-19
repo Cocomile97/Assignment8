@@ -1,20 +1,31 @@
 package ac.za.cput.Repository.impl;
+
+import ac.za.cput.Repository.CourseRepository;
+import ac.za.cput.Repository.LocationRepository;
 import ac.za.cput.Repository.ProjectRepository;
+import ac.za.cput.domain.Course;
+import ac.za.cput.domain.Location;
 import ac.za.cput.domain.Project;
-import ac.za.cput.factory.ProjectFactory;
 
-import java.util.*;
-
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class ProjectRepositoryImpl implements ProjectRepository {
 
-    private List <Project>listproject;
-
     private static ProjectRepositoryImpl repository = null;
-    private Set<Project> project;
+    private Set<Project> projects;
 
-    private ProjectRepositoryImpl (){
-        this.project = new HashSet<Project>();
+    private ProjectRepositoryImpl(){
+        this.projects = new HashSet();
+    }
+
+    private Project findProject(String projectName) {
+        return this.projects.stream()
+                .filter(project -> project.getProjectName().trim().equals(projectName))
+                .findAny()
+                .orElse(null);
     }
 
     public static ProjectRepositoryImpl getRepository(){
@@ -22,58 +33,33 @@ public class ProjectRepositoryImpl implements ProjectRepository {
         return repository;
     }
 
-    public Set<Project> getAll() {
+
+    public Project create(Project project){
+        this.projects.add(project);
         return project;
     }
 
-
-    public Project create(Project project) {
-
-        Scanner input = new Scanner(System.in);
-
-        System.out.print("Enter the project name: ");
-        String name=input.nextLine().toUpperCase();
-        System.out.println("Enter the project num : ");
-        String num=input.nextLine();
-        System.out.println("Enter the project type : ");
-        String type=input.nextLine();
-
-
-        project=ProjectFactory.getProject(num,type,name);
-
-        this.project.add(project);
-        System.out.println("Project created successfully");
-
+    public Project read(final String projectName){
+        Project project = findProject(projectName);
         return project;
     }
 
-    @Override
-    public Project update(Project location) {
+    public void delete(String projectName) {
+        Project project = findProject(projectName);
+        if (project != null) this.projects.remove(project);
+    }
+
+    public Project update(Project project){
+        Project toDelete = findProject(project.getProjectName());
+        if(toDelete != null) {
+            this.projects.remove(toDelete);
+            return create(project);
+        }
         return null;
     }
 
-    @Override
-    public void delete(String s) {
 
-        listproject=new ArrayList<Project>(project);
-        for (int i=0;i<listproject.size();i++){
-            if (s.toUpperCase()==listproject.get(i).getProjectNum() ){
-                project.remove(i);
-            }
-        }
-        for(Project b : listproject)
-            project.add(b);
-    }
-
-    @Override
-    public Project read(String s) {
-        Project b=null;
-        listproject=new ArrayList<Project>(project);
-        for (int i=0;i<listproject.size();i++){
-            if (s==listproject.get(i).getProjectNum() ){
-                b= listproject.get(i);
-            }
-        }
-        return b;
+    public Set<Project> getAll(){
+        return this.projects;
     }
 }
