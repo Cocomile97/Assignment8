@@ -44,7 +44,7 @@ public class LocationRepositoryImplTest {
     @Test
     public void b_read() {
         Location savedLocations = getSavedLocation();
-        System.out.println("In read, courseId = "+ savedLocations.getLocationId());
+        System.out.println("In read, locationId = "+ savedLocations.getLocationId());
         Location read = this.repository.read(savedLocations.getLocationId());
         System.out.println("In read, read = " + read);
         d_getAll();
