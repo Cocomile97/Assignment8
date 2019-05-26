@@ -1,10 +1,6 @@
 package ac.za.cput.controller;
 import ac.za.cput.domain.Account;
-import ac.za.cput.domain.Student;
-import ac.za.cput.domain.Year;
 import ac.za.cput.service.AccountService;
-import ac.za.cput.service.StudentService;
-import ac.za.cput.service.YearService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
